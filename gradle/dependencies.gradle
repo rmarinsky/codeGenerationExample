@@ -1,0 +1,34 @@
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lombokArtifact = 'org.projectlombok:lombok'
+    junitJupiter = 'org.junit.jupiter:junit-jupiter'
+
+    junit5Ver = '5.6.2'
+    lombokVer = '1.18.16'
+    restAssuredVer = '4.2.0'
+}
+
+dependencies {
+    annotationProcessor "org.projectlombok:lombok:$lombokVer"
+
+    compileOnly "$lombokArtifact:$lombokVer"
+
+    implementation(
+            "io.rest-assured:rest-assured:$restAssuredVer",
+            "com.github.javafaker:javafaker:1.0.0"
+    )
+
+    testImplementation(
+            "$junitJupiter-api:$junit5Ver",
+            "org.assertj:assertj-core:3.11.1"
+    )
+
+    testRuntimeOnly "$junitJupiter-engine:$junit5Ver"
+
+    testCompileOnly "$lombokArtifact:$lombokVer"
+    testAnnotationProcessor "$lombokArtifact:$lombokVer"
+
+}
