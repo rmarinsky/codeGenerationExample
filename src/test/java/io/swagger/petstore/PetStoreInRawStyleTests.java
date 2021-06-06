@@ -1,13 +1,14 @@
 package io.swagger.petstore;
 
-public class PetStoreInRawStyleTests {
+class PetStoreInRawStyleTests {
 
     private final String
             baseUrl = "http://petstore.swagger.io/v2",
             apiKeyValue = "1qa2ws3ed4rfvcxz";
 
-    @Test
-    public void addNewPetToStoreTest() {
+    @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.DisplayName("Get pet")
+    void addNewPetToStoreTest() {
         String testPetId = RandomStringUtils.randomNumeric(10),
                 testPetName = "Pet_" + RandomStringUtils.randomAlphabetic(10);
 
