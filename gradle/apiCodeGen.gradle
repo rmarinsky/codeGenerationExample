@@ -8,7 +8,7 @@ ext {
 tasks.withType(GenerateSwaggerCode) {
     wipeOutputDir = true
     language = 'java'
-    components = ["apis", "models"]
+    components = ["models"]
 }
 
 swaggerSources {
