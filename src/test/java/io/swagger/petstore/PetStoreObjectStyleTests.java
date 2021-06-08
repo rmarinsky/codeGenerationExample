@@ -2,8 +2,8 @@ package io.swagger.petstore;
 
 import com.github.javafaker.Faker;
 import io.swagger.petstore.controller.PetController;
-import io.swagger.petstore.model.Category;
-import io.swagger.petstore.model.PetDto;
+import io.swagger.petstore.models.Category;
+import io.swagger.petstore.models.Pet;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,23 +18,21 @@ class PetStoreObjectStyleTests {
     @Test
     @DisplayName("Create and get pet by id")
     void createAndGetPet() {
-        var targetPet = PetDto.builder()
-                .id(faker.number().randomDigitNotZero())
+        var targetPet = new Pet()
+                .id(faker.number().randomNumber())
                 .name(faker.name().name())
-                .category(Category.builder()
-                        .id(faker.number().randomDigitNotZero())
+                .category(new Category()
+                        .id(faker.number().randomNumber())
                         .name(faker.name().username())
-                        .build()
-                ).status("available")
+                ).status(Pet.StatusEnum.AVAILABLE)
                 .photoUrls(new ArrayList<>())
-                .tags(new ArrayList<>())
-                .build();
+                .tags(new ArrayList<>());
 
         petController.createPet(targetPet);
 
         var petById = petController.getPetById(targetPet.getId().toString());
 
-        Assertions.assertThat(petById.as(PetDto.class)).isEqualTo(targetPet);
+        Assertions.assertThat(petById.as(Pet.class)).isEqualTo(targetPet);
     }
 
 }

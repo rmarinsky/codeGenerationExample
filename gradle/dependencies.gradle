@@ -9,15 +9,19 @@ ext {
     junit5Ver = '5.6.2'
     lombokVer = '1.18.16'
     restAssuredVer = '4.2.0'
+    swaggerVer = "1.6.2"
 }
 
 dependencies {
+    swaggerCodegen 'org.openapitools:openapi-generator-cli:3.+'
     annotationProcessor "org.projectlombok:lombok:$lombokVer"
 
     compileOnly "$lombokArtifact:$lombokVer"
 
     implementation(
             "io.rest-assured:rest-assured:$restAssuredVer",
+            "com.fasterxml.jackson.core:jackson-databind:2.11.2",
+            "io.swagger:swagger-annotations:$swaggerVer",
             "com.github.javafaker:javafaker:1.0.0"
     )
 

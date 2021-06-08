@@ -4,7 +4,7 @@ import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.swagger.petstore.model.PetDto;
+import io.swagger.petstore.models.Pet;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.config.HeaderConfig.headerConfig;
@@ -31,9 +31,9 @@ public class PetController {
                 .get(id);
     }
 
-    public Response createPet(PetDto pet) {
+    public Response createPet(Pet targetPet) {
         return petApi()
-                .body(pet)
+                .body(targetPet)
                 .post();
     }
 
