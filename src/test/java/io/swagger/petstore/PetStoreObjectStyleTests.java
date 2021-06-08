@@ -1,6 +1,7 @@
 package io.swagger.petstore;
 
 import com.github.javafaker.Faker;
+import io.restassured.response.Response;
 import io.swagger.petstore.controller.PetController;
 import io.swagger.petstore.models.Category;
 import io.swagger.petstore.models.Pet;
@@ -28,7 +29,8 @@ class PetStoreObjectStyleTests {
                 .photoUrls(new ArrayList<>())
                 .tags(new ArrayList<>());
 
-        petController.createPet(targetPet);
+        Response pet = petController.createPet(targetPet);
+        Assertions.assertThat(pet.getStatusCode()).isEqualTo(200);
 
         var petById = petController.getPetById(targetPet.getId().toString());
 
