@@ -22,7 +22,8 @@ dependencies {
             "io.rest-assured:rest-assured:$restAssuredVer",
             "com.fasterxml.jackson.core:jackson-databind:2.11.2",
             "io.swagger:swagger-annotations:$swaggerVer",
-            "com.github.javafaker:javafaker:1.0.0"
+            "com.github.javafaker:javafaker:1.0.0",
+            "com.google.code.gson:gson:2.8.7"
     )
 
     testImplementation(

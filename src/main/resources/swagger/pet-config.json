@@ -1,10 +1,11 @@
 {
   "sourceFolder": "src/main/java/",
   "modelPackage": "io.swagger.petstore.models",
+  "apiPackage": "io.swagger.petstore.controller",
   "groupId": "io.swagger",
   "artifactId": "petstore",
   "artifactVersion": "3.0.0",
-  "library": "resttemplate",
+  "library": "rest-assured",
   "dateLibrary": "java8",
   "hideGenerationTimestamp": true,
   "typeMappings": {
