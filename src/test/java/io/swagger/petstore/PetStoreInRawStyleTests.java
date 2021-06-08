@@ -1,13 +1,21 @@
 package io.swagger.petstore;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 class PetStoreInRawStyleTests {
 
     private final String
             baseUrl = "http://petstore.swagger.io/v2",
             apiKeyValue = "1qa2ws3ed4rfvcxz";
 
-    @org.junit.jupiter.api.Test
-    @org.junit.jupiter.api.DisplayName("Get pet")
+    @Test
+    @DisplayName("Get pet")
     void addNewPetToStoreTest() {
         String testPetId = RandomStringUtils.randomNumeric(10),
                 testPetName = "Pet_" + RandomStringUtils.randomAlphabetic(10);

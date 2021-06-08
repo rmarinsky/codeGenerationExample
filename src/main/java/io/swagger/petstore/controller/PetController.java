@@ -1,24 +1,29 @@
 package io.swagger.petstore.controller;
 
-import io.restassured.specification.RequestSpecification;
-import static io.restassured.RestAssured.given;
-import io.restassured.response.Response;
-import io.restassured.http.ContentType;
-import static io.restassured.config.HeaderConfig.headerConfig;
 import io.restassured.config.RestAssuredConfig;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.swagger.petstore.model.PetDto;
 
+import static io.restassured.RestAssured.given;
+import static io.restassured.config.HeaderConfig.headerConfig;
 
 
 public class PetController {
 
     private RequestSpecification petApi() {
         return given()
-                .baseUrl("")
+                .baseUri("http://petstore.swagger.io/v2")
                 .config(RestAssuredConfig.config()
-                        .headerConfig(headerConfig().overwriteHeadersWithName("Authorization", "Content-Type")))
+                        .headerConfig(
+                                headerConfig().overwriteHeadersWithName("Authorization", "Content-Type")
+                        )
+                )
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .header("api_key", "key");
+                .header("api_key", "1qa2ws3ed4rfvcxz")
+                .log().all();
     }
 
     public Response getPetById(String id) {
@@ -30,7 +35,6 @@ public class PetController {
         return petApi()
                 .body(pet)
                 .post();
-
     }
 
     public Response deletePetById(String id) {
