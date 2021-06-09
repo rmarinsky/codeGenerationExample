@@ -1,5 +1,12 @@
 package io.swagger.petstore;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
+
 public class PetStoreInRawStyleTests {
 
     private final String
