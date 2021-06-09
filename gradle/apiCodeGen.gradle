@@ -32,11 +32,4 @@ swaggerSources {
 
 }
 
-generateSwaggerCode.doFirst { this.removeOutputDir }
-
 compileJava.dependsOn 'generateSwaggerCode'
-
-sourceSets.main {
-    java.srcDirs "${petApiDir.path}/src/main/java"
-    resources.srcDirs "$petApiDir/src/main/resources"
-}

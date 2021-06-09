@@ -16,6 +16,10 @@ apply from: "gradle/dependencies.gradle"
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
+sourceSets.main {
+    java.srcDirs "${petApiDir.path}/src/main/java"
+}
+
 tasks.withType(Test) {
     reports {
         junitXml.enabled = true
