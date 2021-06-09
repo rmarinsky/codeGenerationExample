@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import io.swagger.petstore.common.ResponseAssertion;
 import io.swagger.petstore.common.ResponseExpectMessages;
+import io.swagger.petstore.common.ResponseExpectMessages.StatusCode;
 import io.swagger.petstore.controller.PetController;
 import io.swagger.petstore.models.Category;
 import io.swagger.petstore.models.Pet;
@@ -30,14 +31,22 @@ public class DecoratorPetStore {
                 .photoUrls(new ArrayList<>())
                 .tags(new ArrayList<>());
 
-        Response pet = petController.createPet(targetPet);
-        new ResponseAssertion(pet)
-                .statusCodeIsEqualTo(ResponseExpectMessages.StatusCode.OK);
+        var createdPet = petController.createPet(targetPet);
+
+        new ResponseAssertion(createdPet)
+                .statusCodeIsEqualTo(StatusCode.OK)
+                .responseIsEqualTo(targetPet);
 
         var petById = petController.getPetById(targetPet.getId().toString());
 
         new ResponseAssertion(petById)
-                .statusCodeIsEqualTo(ResponseExpectMessages.StatusCode.OK)
+                .statusCodeIsEqualTo(StatusCode.OK)
+                .responseIsEqualTo(targetPet);
+
+        var response = petController.deletePetById(targetPet.getId());
+
+        new ResponseAssertion(response)
+                .statusCodeIsEqualTo(StatusCode.OK)
                 .responseIsEqualTo(targetPet);
     }
 

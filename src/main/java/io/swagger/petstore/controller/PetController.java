@@ -1,13 +1,11 @@
 package io.swagger.petstore.controller;
 
-import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.swagger.petstore.models.Pet;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.config.HeaderConfig.headerConfig;
 
 
 public class PetController {
@@ -32,9 +30,9 @@ public class PetController {
                 .post();
     }
 
-    public Response deletePetById(String id) {
+    public Response deletePetById(Long id) {
         return petApi()
-                .delete(id);
+                .delete(String.valueOf(id));
     }
 
 }
