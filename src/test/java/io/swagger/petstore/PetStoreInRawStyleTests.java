@@ -12,7 +12,7 @@ class PetStoreInRawStyleTests {
 
     private final String
             baseUrl = "http://petstore.swagger.io/v2",
-            apiKeyValue = "1qa2ws3ed4rfvcxz";
+            apiKeyValue = "4a0d8b0e-03fe-4ec3-971d-d009fc6a3b2d";
 
     @Test
     @DisplayName("Get pet")

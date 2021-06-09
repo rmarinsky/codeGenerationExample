@@ -15,14 +15,9 @@ public class PetController {
     private RequestSpecification petApi() {
         return given()
                 .baseUri("http://petstore.swagger.io/v2")
-                .config(RestAssuredConfig.config()
-                        .headerConfig(
-                                headerConfig().overwriteHeadersWithName("Authorization", "Content-Type")
-                        )
-                )
-                .accept(ContentType.JSON)
+                .basePath("pet")
                 .contentType(ContentType.JSON)
-                .header("api_key", "1qa2ws3ed4rfvcxz")
+                .header("api_key", "4a0d8b0e-03fe-4ec3-971d-d009fc6a3b2d")
                 .log().all();
     }
 
