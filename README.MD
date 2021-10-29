@@ -4,6 +4,8 @@ Repository for training demo about different ways of code generations
 
 Examples based on https://petstore.swagger.io/#/
 
+Video in Ukrainian: https://youtu.be/j9wA2D3IQ9Q
+
 ### Tasks to generate some code:
 
 - `gradle generateSwaggerCode` - to generate only models based on petstore open-api schema
