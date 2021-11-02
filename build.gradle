@@ -6,6 +6,10 @@ plugins {
     id "io.freefair.lombok" version "5.3.0"
     id 'org.hidetake.swagger.generator' version '2.18.2'
     id "com.github.opengl-BOBO.assertjGen2" version "2.0.0"
+
+    id 'io.qameta.allure' version '2.9.5'
+    id 'io.qameta.allure-adapter' version '2.9.5'
+    id "io.qameta.allure-report" version '2.9.5'
 }
 
 group 'io.swagger.petstore'
@@ -33,5 +37,19 @@ tasks.withType(Test) {
         showStandardStreams = true
         exceptionFormat = TestExceptionFormat.FULL
         events = ['passed', 'skipped', 'failed']
+    }
+}
+
+
+allure {
+    version = allureVer
+
+    adapter {
+        allureJavaVersion = allureVer
+        frameworks {
+            junit5 {
+                enabled = true
+            }
+        }
     }
 }
