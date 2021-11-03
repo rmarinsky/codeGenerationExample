@@ -3,6 +3,7 @@ repositories {
 }
 
 ext {
+    allureArtifact = 'io.qameta.allure:allure'
     lombokArtifact = 'org.projectlombok:lombok'
     junitJupiter = 'org.junit.jupiter:junit-jupiter'
 
